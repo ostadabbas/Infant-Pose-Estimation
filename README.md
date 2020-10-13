@@ -10,7 +10,7 @@
   * [Acknowledgments](#acknowledgments)
 
 ## Introduction
-This is an official pytorch implementation of [*Infant Pose Learning with Small Data*](https://arxiv.org/abs/1804.06208). This work proposes a fine-tuned domain-adapted infant pose (FiDIP) estimation model, that transfers the knowledge of adult poses into estimating infant pose with the supervision of a domain adaptation technique on our released synthetic and real infant pose (**SyRIP**) dataset. On SyRIP test dataset, our FiDIP model outperforms other state-of-the-art human pose estimation model for the infant pose estimation, with the mean average precision (AP) as high as 92.2. And the implementation of synthetic infant data generation is located under the root path.   </br>
+This is an official pytorch implementation of [*Infant Pose Learning with Small Data*](https://arxiv.org/abs/1804.06208). This work proposes a fine-tuned domain-adapted infant pose (FiDIP) estimation model, that transfers the knowledge of adult poses into estimating infant pose with the supervision of a domain adaptation technique on our released synthetic and real infant pose (SyRIP) dataset. On SyRIP test dataset, our FiDIP model outperforms other state-of-the-art human pose estimation model for the infant pose estimation, with the mean average precision (AP) as high as 92.2. And the implementation of synthetic infant data generation is located under the root path.   </br>
 
 ## Main Results
 ### Performance comparison between FiDIP network and the SOTA pose estimators the COCO Val2017 and SyRIP test dataset
@@ -61,9 +61,9 @@ The code is developed using python 3.6 on Ubuntu 18.04. NVIDIA GPUs are needed. 
 5. Install [COCOAPI](https://github.com/cocodataset/cocoapi)
 
 ### Download pretrained models
-   (1) download pytorch imagenet pretrained models from [pytorch model zoo](https://pytorch.org/docs/stable/model_zoo.html#module-torch.utils.model_zoo) and caffe-style pretrained models from [GoogleDrive](https://drive.google.com/drive/folders/1yJMSFOnmzwhA4YYQS71Uy7X1Kl_xq9fN?usp=sharing). 
-   (2) download coco pretrained models from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW0D5ZE4ArK9wk_fvw) or [GoogleDrive](https://drive.google.com/drive/folders/13_wJ6nC7my1KKouMkQMqyr9r1ZnLnukP?usp=sharing). 
-   (3) download our FiDIP pretrained model from [GoogleDrive](https://drive.google.com/file/d/13xa0Rpns_9a2KEqgpyv7BXIK3i9fiFYV/view?usp=sharing). 
+ (1) download pytorch imagenet pretrained models from [pytorch model zoo](https://pytorch.org/docs/stable/model_zoo.html#module-torch.utils.model_zoo) and caffe-style pretrained models from [GoogleDrive](https://drive.google.com/drive/folders/1yJMSFOnmzwhA4YYQS71Uy7X1Kl_xq9fN?usp=sharing). 
+ (2) download coco pretrained models from [OneDrive](https://1drv.ms/f/s!AhIXJn_J-blW0D5ZE4ArK9wk_fvw) or [GoogleDrive](https://drive.google.com/drive/folders/13_wJ6nC7my1KKouMkQMqyr9r1ZnLnukP?usp=sharing). 
+ (3) download our FiDIP pretrained model from [GoogleDrive](https://drive.google.com/file/d/13xa0Rpns_9a2KEqgpyv7BXIK3i9fiFYV/view?usp=sharing). 
    Please download them under ${POSE_ROOT}/models/pytorch, and make them look like this:
 
    ```
@@ -80,7 +80,7 @@ The code is developed using python 3.6 on Ubuntu 18.04. NVIDIA GPUs are needed. 
    ```
    
 ### Data preparation
-**For SyRIP data**, please download from [SyRIP dataset](https://coe.northeastern.edu/Research/AClab/SyRIP/). Download and extract them under {POSE_ROOT}/data, and make them look like this:
+For SyRIP data, please download from [SyRIP dataset](https://coe.northeastern.edu/Research/AClab/SyRIP/). Download and extract them under {POSE_ROOT}/data, and make them look like this:
 ```
 ${POSE_ROOT}
 |-- data
@@ -126,7 +126,7 @@ python pose_estimation/train_adaptive_model.py  --cfg experiments/coco/resnet50/
 ```
 
 ## Synthetic Infant Data Generation
-Please follow the [README.md]() in the folder `syn_generation`.
+Please follow the [README.md](./syn_generation/README.md) in the folder `syn_generation`.
 
 ## Citation
 

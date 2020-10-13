@@ -51,8 +51,8 @@ The code is developed using python 3.6 on Ubuntu 18.04. NVIDIA GPUs are needed. 
    pip install -r optional-requirements.txt
    ```
 ### Preparation for fitting SMIL
-   (1) Download [SMIL](https://www.iosb.fraunhofer.de/servlet/is/82920/) model `smil_web.pkl` and put it in 'syn_generation/models` folder.
-   (2) Place your infant images and corresponding poses in `syn_generation/data/images` and `syn_generation/data/keypoints` perspectively, as the example files in these folders.
+   (1) Download [SMIL](https://www.iosb.fraunhofer.de/servlet/is/82920/) model `smil_web.pkl` and put it in `syn_generation/models` folder.
+   (2) Place your infant images and corresponding poses in `syn_generation/data/images` and `syn_generation/data/keypoints` separately, as the example files in these folders.
 
 ### Fitting SMIL
 ```
