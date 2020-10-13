@@ -23,7 +23,7 @@ Contact:
   * [Acknowledgments](#acknowledgments)
 
 ## Introduction
-This is an official pytorch implementation of [*Infant Pose Learning with Small Data*](https://arxiv.org/abs/1804.06208). This work proposes a fine-tuned domain-adapted infant pose (FiDIP) estimation model, that transfers the knowledge of adult poses into estimating infant pose with the supervision of a domain adaptation technique on our released synthetic and real infant pose [SyRIP dataset](https://coe.northeastern.edu/Research/AClab/SyRIP/). On SyRIP test dataset, our FiDIP model outperforms other state-of-the-art human pose estimation model for the infant pose estimation, with the mean average precision (AP) as high as 92.2. And the implementation of synthetic infant data generation is located under the root path.   </br>
+This is an official pytorch implementation of [*Infant Pose Learning with Small Data*](https://arxiv.org/abs/1804.06208). This work proposes a fine-tuned domain-adapted infant pose (FiDIP) estimation model, that transfers the knowledge of adult poses into estimating infant pose with the supervision of a domain adaptation technique on our released synthetic and real infant pose, called [SyRIP dataset](https://coe.northeastern.edu/Research/AClab/SyRIP/). On SyRIP test dataset, our FiDIP model outperforms other state-of-the-art human pose estimation model for the infant pose estimation, with the mean average precision (AP) as high as 92.2. And the implementation of synthetic infant data generation is located under the root path.   </br>
 
 ## Main Results
 ### Performance comparison between FiDIP network and the SOTA pose estimators the COCO Val2017 and SyRIP test dataset
