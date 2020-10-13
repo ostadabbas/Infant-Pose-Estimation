@@ -1,5 +1,17 @@
 # Fine-tuned Domain-adapted Infant Pose (FiDIP)
 
+Codes and experiments for the following paper: 
+
+
+Xiaofei Huang, Nihang Fu, Sarah Ostadabbas, "Infant Pose Learning with Small Data."
+
+Contact: 
+[Xiaofei Huang](xhuang@ece.neu.edu)
+
+[Nihang Fu](nihang@ece.neu.edu)
+
+[Sarah Ostadabbas](ostadabbas@ece.neu.edu)
+
 ## Table of Contents
   * [Introduction](#introduction)
   * [Main Results](#main-results)
@@ -136,8 +148,13 @@ If you use our code or models in your research, please cite with:
 
 ```
 
+
 ## Acknowledgement
 Thanks for the open-source Pose-ResNet
 * [Simple Baselines for Human Pose Estimation and Tracking, Xiao, Bin and Wu, Haiping and Wei, Yichen](https://github.com/microsoft/human-pose-estimation.pytorch)
+
+## License 
+* This code is for non-commertial purpose only. 
+* For further inquiry please contact: Augmented Cognition Lab at Northeastern University: http://www.northeastern.edu/ostadabbas/ 
 
 
