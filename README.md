@@ -13,7 +13,6 @@ Contact:
 
 [Sarah Ostadabbas](ostadabbas@ece.neu.edu)
 
-Sarah Ostadabbas
 ## Table of Contents
   * [Introduction](#introduction)
   * [Main Results](#main-results)
@@ -164,6 +163,7 @@ If you use our code or models in your research, please cite with:
 ## Acknowledgement
 Thanks for the open-source Pose-ResNet
 * [Simple Baselines for Human Pose Estimation and Tracking, Xiao, Bin and Wu, Haiping and Wei, Yichen](https://github.com/microsoft/human-pose-estimation.pytorch)
+
 Thanks for the SURREAL dataset
 * [Learning from Synthetic Humans, Gül Varol, Javier Romero, Xavier Martin, Naureen Mahmood, Michael J. Black, Ivan Laptev and Cordelia Schmid](https://github.com/gulvarol/surreal)
 
