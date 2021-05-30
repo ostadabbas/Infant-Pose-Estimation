@@ -3,7 +3,7 @@
 Codes and experiments for the following paper: 
 
 
-Xiaofei Huang, Nihang Fu, Shuangjun Liu, Kathan Vyas, Amirreza Farnoosh, Sarah Ostadabbas, "Invariant Representation Learning for Infant Pose Estimation with Small Data."
+Xiaofei Huang, Nihang Fu, Shuangjun Liu, Sarah Ostadabbas, "Invariant Representation Learning for Infant Pose Estimation with Small Data."
 
 Contact: 
 
@@ -152,11 +152,11 @@ Please follow the [README.md](./syn_generation/README.md) in the folder `syn_gen
 If you use our code or models in your research, please cite with:
 
 ```
-@article{huang2020infant,
-  title={Infant Pose Learning with Small Data},
-  author={Huang, Xiaofei and Fu, Nihang and Ostadabbas, Sarah},
+@article{huang2021infant,
+  title={Invariant Representation Learning for Infant Pose Estimation with Small Data},
+  author={Huang, Xiaofei and Fu, Nihang and Liu, Shuangjun and Ostadabbas, Sarah},
   journal={arXiv preprint arXiv:2010.06100},
-  year={2020}
+  year={2021}
 }
 ```
 
