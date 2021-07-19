@@ -2,8 +2,8 @@
 
 Codes and experiments for the following paper: 
 
+Xiaofei Huang, Nihang Fu, Shuangjun Liu, Sarah Ostadabbas, “Invariant representation learning for infant pose estimation withsmall data,” in IEEE International Conference on Automatic Face and Gesture Recognition (FG), 2021, Dec. 2021
 
-Xiaofei Huang, Nihang Fu, Shuangjun Liu, Sarah Ostadabbas, "Invariant Representation Learning for Infant Pose Estimation with Small Data."
 
 Contact: 
 
@@ -152,11 +152,12 @@ Please follow the [README.md](./syn_generation/README.md) in the folder `syn_gen
 If you use our code or models in your research, please cite with:
 
 ```
-@article{huang2021infant,
+@inproceedings{huang2021infant,
   title={Invariant Representation Learning for Infant Pose Estimation with Small Data},
   author={Huang, Xiaofei and Fu, Nihang and Liu, Shuangjun and Ostadabbas, Sarah},
-  journal={arXiv preprint arXiv:2010.06100},
-  year={2021}
+  booktitle={IEEE International Conference on Automatic Face and Gesture Recognition (FG), 2021},
+  month     = {December},
+  year      = {2021}
 }
 ```
 
