@@ -1,3 +1,9 @@
+# ------------------------------------------------------------------------------
+# Copyright (c) Microsoft
+# Licensed under the MIT License.
+# Modified from py-faster-rcnn (https://github.com/rbgirshick/py-faster-rcnn)
+# ------------------------------------------------------------------------------
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -65,6 +71,7 @@ def nms(dets, thresh):
 
     return keep
 
+
 def oks_iou(g, d, a_g, a_d, sigmas=None, in_vis_thre=None):
     if not isinstance(sigmas, np.ndarray):
         sigmas = np.array([.26, .25, .25, .35, .35, .79, .79, .72, .72, .62, .62, 1.07, 1.07, .87, .87, .89, .89]) / 10.0
@@ -85,6 +92,7 @@ def oks_iou(g, d, a_g, a_d, sigmas=None, in_vis_thre=None):
             e = e[ind]
         ious[n_d] = np.sum(np.exp(-e)) / e.shape[0] if e.shape[0] != 0 else 0.0
     return ious
+
 
 def oks_nms(kpts_db, thresh, sigmas=None, in_vis_thre=None):
     """
@@ -115,3 +123,58 @@ def oks_nms(kpts_db, thresh, sigmas=None, in_vis_thre=None):
 
     return keep
 
+
+def rescore(overlap, scores, thresh, type='gaussian'):
+    assert overlap.shape[0] == scores.shape[0]
+    if type == 'linear':
+        inds = np.where(overlap >= thresh)[0]
+        scores[inds] = scores[inds] * (1 - overlap[inds])
+    else:
+        scores = scores * np.exp(- overlap**2 / thresh)
+
+    return scores
+
+
+def soft_oks_nms(kpts_db, thresh, sigmas=None, in_vis_thre=None):
+    """
+    greedily select boxes with high confidence and overlap with current maximum <= thresh
+    rule out overlap >= thresh, overlap = oks
+    :param kpts_db
+    :param thresh: retain overlap < thresh
+    :return: indexes to keep
+    """
+    if len(kpts_db) == 0:
+        return []
+
+    scores = np.array([kpts_db[i]['score'] for i in range(len(kpts_db))])
+    kpts = np.array([kpts_db[i]['keypoints'].flatten() for i in range(len(kpts_db))])
+    areas = np.array([kpts_db[i]['area'] for i in range(len(kpts_db))])
+
+    order = scores.argsort()[::-1]
+    scores = scores[order]
+
+    # max_dets = order.size
+    max_dets = 20
+    keep = np.zeros(max_dets, dtype=np.intp)
+    keep_cnt = 0
+    while order.size > 0 and keep_cnt < max_dets:
+        i = order[0]
+
+        oks_ovr = oks_iou(kpts[i], kpts[order[1:]], areas[i], areas[order[1:]], sigmas, in_vis_thre)
+
+        order = order[1:]
+        scores = rescore(oks_ovr, scores[1:], thresh)
+
+        tmp = scores.argsort()[::-1]
+        order = order[tmp]
+        scores = scores[tmp]
+
+        keep[keep_cnt] = i
+        keep_cnt += 1
+
+    keep = keep[:keep_cnt]
+
+    return keep
+    # kpts_db = kpts_db[:keep_cnt]
+
+    # return kpts_db

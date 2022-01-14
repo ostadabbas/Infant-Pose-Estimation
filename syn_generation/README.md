@@ -51,9 +51,10 @@ The code is developed using python 3.6 on Ubuntu 18.04. NVIDIA GPUs are needed. 
    pip install -r optional-requirements.txt
    ```
 ### Preparation for fitting SMIL
-   (1) Download [SMIL](https://www.iosb.fraunhofer.de/servlet/is/82920/) model `smil_web.pkl` and put it in `syn_generation/models` folder.
+   (1) Download [SMIL](https://www.iosb.fraunhofer.de/en/competences/image-exploitation/object-recognition/sensor-networks/motion-analysis.html) model `smil_web.pkl` and put it in `syn_generation/models` folder, place `smil_pose_prior` file into `syn_generation/priors`.
    (2) Place your infant images and corresponding poses in `syn_generation/data/images` and `syn_generation/data/keypoints` separately, as the example files in these folders.
 
+Note: By downloading and/or using SMIL model, you need to agree to the license terms.
 ### Fitting SMIL
 ```
 cd syn_generation
@@ -68,9 +69,9 @@ python smplifyx/main.py \
 
 ### Preparation for rendering
    (1) Download background images from LSUN dataset using [this code](https://github.com/fyu/lsun). Or you can use any other images.
-   (2) The infant textures in `syn_generation/render/textures` folder are downloaded from the Moving INfants In RGB-D [MINI-RGBD](https://www.iosb.fraunhofer.de/servlet/is/82920/) dataset. 
+   (2) The infant textures in `syn_generation/render/textures` folder are downloaded from the Moving INfants In RGB-D [MINI-RGBD](https://www.iosb.fraunhofer.de/en/competences/image-exploitation/object-recognition/sensor-networks/motion-analysis.html) dataset. 
    In order to make appearances diverse, you can download adult clothing images from [SMPL](lsh.paris.inria.fr/SURREAL/smpl_data/textures.tar.gz) data.
-   (3) Copy SMIL model `smil_web.pkl` to 'syn_generation/render` folder.
+   (3) Copy SMIL model `smil_web.pkl` to `syn_generation/render` folder.
   
 ### Rendering
 ```
@@ -84,7 +85,12 @@ The generated synthetic images are saved in `syn_generation/render/output` folde
 If you use our code or models in your research, please cite with:
 
 ```
-
+@article{huang2020invariant,
+  title={Invariant representation learning for infant pose estimation with small data},
+  author={Huang, Xiaofei and Fu, Nihang and Liu, Shuangjun and Vyas, Kathan and Farnoosh, Amirreza and Ostadabbas, Sarah},
+  journal={arXiv preprint arXiv:2010.06100},
+  year={2020}
+}
 ```
 
 ## Acknowledgement

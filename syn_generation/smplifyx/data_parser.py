@@ -1,3 +1,23 @@
+# -*- coding: utf-8 -*-
+
+# Max-Planck-Gesellschaft zur Förderung der Wissenschaften e.V. (MPG) is
+# holder of all proprietary rights on this computer program.
+# You can only use this computer program if you have closed
+# a license agreement with MPG or you get the right to use the computer
+# program from someone who is authorized to grant you that right.
+# Any use of the computer program without a valid license is prohibited and
+# liable to prosecution.
+#
+# Copyright©2019 Max-Planck-Gesellschaft zur Förderung
+# der Wissenschaften e.V. (MPG). acting on behalf of its Max Planck Institute
+# for Intelligent Systems and the Max Planck Institute for Biological
+# Cybernetics. All rights reserved.
+#
+# Contact: ps-license@tuebingen.mpg.de
+
+# Modified by Xiaofei Huang (xhuang@ece.neu.edu) and Nihang Fu (nihang@ece.neu.edu)
+# ------------------------------------------------------------------------------
+
 from __future__ import absolute_import
 from __future__ import print_function
 from __future__ import division
@@ -43,45 +63,6 @@ def read_keypoints(keypoint_fn, use_hands=True, use_face=True,
 
     gender_pd = []
     gender_gt = []
-    '''
-    for idx, person_data in enumerate(data['annotations']):
-        body_keypoints = np.array(person_data['pose_keypoints_2d'],
-                                  dtype=np.float32)
-        body_keypoints = body_keypoints.reshape([-1, 3])
-        if use_hands:
-            left_hand_keyp = np.array(
-                person_data['hand_left_keypoints_2d'],
-                dtype=np.float32).reshape([-1, 3])
-            right_hand_keyp = np.array(
-                person_data['hand_right_keypoints_2d'],
-                dtype=np.float32).reshape([-1, 3])
-
-            body_keypoints = np.concatenate(
-                [body_keypoints, left_hand_keyp, right_hand_keyp], axis=0)
-        if use_face:
-            # TODO: Make parameters, 17 is the offset for the eye brows,
-            # etc. 51 is the total number of FLAME compatible landmarks
-            face_keypoints = np.array(
-                person_data['face_keypoints_2d'],
-                dtype=np.float32).reshape([-1, 3])[17: 17 + 51, :]
-
-            contour_keyps = np.array(
-                [], dtype=body_keypoints.dtype).reshape(0, 3)
-            if use_face_contour:
-                contour_keyps = np.array(
-                    person_data['face_keypoints_2d'],
-                    dtype=np.float32).reshape([-1, 3])[:17, :]
-
-            body_keypoints = np.concatenate(
-                [body_keypoints, face_keypoints, contour_keyps], axis=0)
-
-        if 'gender_pd' in person_data:
-            gender_pd.append(person_data['gender_pd'])
-        if 'gender_gt' in person_data:
-            gender_gt.append(person_data['gender_gt'])
-
-        keypoints.append(body_keypoints)
-        '''
     
     return Keypoints(keypoints=keypoints, gender_pd=gender_pd,
                      gender_gt=gender_gt)

@@ -1,3 +1,6 @@
+'''
+Created by Xiaofei Huang (xhuang@ece.neu.edu)
+'''
 import numpy as np
 import os
 import cv2

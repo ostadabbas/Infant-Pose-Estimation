@@ -4,6 +4,10 @@ Copyright 2015 Matthew Loper, Naureen Mahmood and the Max Planck Gesellschaft.  
 This software is provided for research purposes only.
 By using this software you agree to the terms of the SMPL Model license here http://smpl.is.tue.mpg.de/license
 
+More information about SMPL is available here http://smpl.is.tue.mpg.
+For comments or questions, please email us at: smpl@tuebingen.mpg.de
+'''
+
 import chumpy
 import smil_webuser.lbs as lbs
 from smil_webuser.posemapper import posemap
