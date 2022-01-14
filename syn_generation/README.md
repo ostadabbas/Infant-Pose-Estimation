@@ -70,7 +70,7 @@ python smplifyx/main.py \
 ### Preparation for rendering
    (1) Download background images from LSUN dataset using [this code](https://github.com/fyu/lsun). Or you can use any other images.
    (2) The infant textures in `syn_generation/render/textures` folder are downloaded from the Moving INfants In RGB-D [MINI-RGBD](https://www.iosb.fraunhofer.de/en/competences/image-exploitation/object-recognition/sensor-networks/motion-analysis.html) dataset. 
-   In order to make appearances diverse, you can download adult clothing images from [SMPL](lsh.paris.inria.fr/SURREAL/smpl_data/textures.tar.gz) data.
+   In order to make appearances diverse, you can download adult clothing images from [SMPL for MAYA](https://smpl.is.tue.mpg.de/). You need to agree on SMPL license terms and have access to download.
    (3) Copy SMIL model `smil_web.pkl` to `syn_generation/render` folder.
   
 ### Rendering
