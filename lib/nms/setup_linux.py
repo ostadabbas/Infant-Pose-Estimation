@@ -111,7 +111,7 @@ ext_modules = [
     Extension(
         "cpu_nms",
         ["cpu_nms.pyx"],
-        extra_compile_args={'gcc': ["-Wno-cpp", "-Wno-unused-function"]},
+        extra_compile_args={'gcc': ["-Wno-cpp", "-Wno-unused-function", "-DNPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION"]},
         include_dirs = [numpy_include]
     ),
     Extension('gpu_nms',
@@ -123,8 +123,8 @@ ext_modules = [
         # this syntax is specific to this build system
         # we're only going to use certain compiler args with nvcc and not with
         # gcc the implementation of this trick is in customize_compiler() below
-        extra_compile_args={'gcc': ["-Wno-unused-function"],
-                            'nvcc': ['-arch=sm_35',
+        extra_compile_args={'gcc': ["-Wno-unused-function", "-DNPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION"],
+                            'nvcc': ['-arch=sm_75',
                                      '--ptxas-options=-v',
                                      '-c',
                                      '--compiler-options',
