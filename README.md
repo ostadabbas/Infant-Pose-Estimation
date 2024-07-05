@@ -105,7 +105,7 @@ The code is developed using python 3.12 with CUDA 12.1 on Ubuntu 18.04. NVIDIA G
    ```
    
 ### Data preparation
-For SyRIP data, please download from [SyRIP dataset](https://coe.northeastern.edu/Research/AClab/SyRIP/). The original SyRIP data can be download from **`SyRIP.zip'**, and the data for FiDIP model training can be download from **'syrip_for_train'**. Download and extract them under {POSE_ROOT}/data, and make them look like this:
+For SyRIP data, please download from [SyRIP dataset](https://coe.northeastern.edu/Research/AClab/SyRIP/). The original SyRIP data can be download from **`SyRIP.zip'**, and the data for FiDIP model training can be download from **'syrip_for_train.zip'**. Download and extract them under {POSE_ROOT}/data, and make them look like this:
 ```
 ${POSE_ROOT}
 |-- data
