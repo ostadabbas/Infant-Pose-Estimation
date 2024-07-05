@@ -13,10 +13,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import models.pose_resnet
 import models.pose_hrnet
 import models.pose_mobile
-import models.adaptive_pose_resnet
 import models.adaptive_pose_hrnet
 import models.adaptive_pose_mobile
 
