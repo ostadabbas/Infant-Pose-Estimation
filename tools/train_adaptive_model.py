@@ -318,11 +318,12 @@ def main():
     losses_p = AverageMeter() 
     acces_p = AverageMeter()
     for epoch in range(begin_epoch, cfg.TRAIN.END_EPOCH):
-        lr_scheduler_p.step()
-
         # train for one epoch
         losses_P_list,losses_D_list, acces_P_list, acces_D_list = train_adaptive(cfg, train_loader, model_p, model_d, criterion_p, criterion_d, optimizer_p, optimizer_d, epoch, final_output_dir, tb_log_dir, writer_dict, losses_P_list, losses_D_list, acces_P_list, acces_D_list, acc_num_total, num, losses_p, acces_p, losses_d)
  
+        lr_scheduler_p.step()
+        lr_scheduler_d.step()
+
         # evaluate on validation set
         perf_indicator = validate_adaptive(cfg, valid_loader, valid_dataset, model_p,
                                   criterion_p, final_output_dir, tb_log_dir,

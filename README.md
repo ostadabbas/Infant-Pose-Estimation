@@ -28,7 +28,7 @@ This is an official pytorch implementation of [*Invariant Representation Learnin
 
 ## What's New :fire:
   * Release [expanded SyRIP dataset](https://coe.northeastern.edu/Research/AClab/Expanded_SyRIP/) including extra 400 real images in training set. Please contact us for the password of our dataset.
-  * Release [new FiDIP model](https://drive.google.com/file/d/1yoA5hcdrbl-eRGutGxUcc3qi2j0kPrTD/view?usp=drive_link) trained on the expanded SyRIP dataset.
+  * Release [new FiDIP model](https://drive.google.com/file/d/1UHQC63mSEL4Vcuenqg9R3OaNP0Wv_6gd/view?usp=drive_link) trained on the expanded SyRIP dataset.
 
 
 
@@ -59,9 +59,10 @@ This is an official pytorch implementation of [*Invariant Representation Learnin
 | Pose-MobileNet + Finetune | MobileNetV2 | 224x224 | 3.91M | 0.46 | 78.9 | 97.2 | 90.6 | 84.2 | 98.0 | 94.0 |
 | Pose-MobileNet + FiDIP | MobileNetV2 | 224x224 | 3.91M | 0.46 | **79.2** | 99.0 | 89.4 | 84.1 | 99.0 | 92.0 |
 
+ 
 ## Environment
 The code is developed using python 3.12 with CUDA 12.1 on Ubuntu 18.04. NVIDIA GPUs are needed. The code is developed and tested using one NVIDIA TITAN Xp GPU card. Other platforms or GPU cards are not fully tested.
- 
+
 ## Quick Start
 ### Installation
 1. Clone this repo, and we'll call the directory that you cloned as ${POSE_ROOT} and get the following directory.
@@ -73,17 +74,16 @@ The code is developed using python 3.12 with CUDA 12.1 on Ubuntu 18.04. NVIDIA G
    ├── log
    ├── models
    ├── output
-   ├── pose_estimation
+   ├── tools
    ├── README.md
-   ├── fidip_env.yml
    └── syn_generation
 
    ```
 
-2. Create environment:
-   ```
+2. ```
    conda env create -f fidip_env.yml
    ```
+
 3. Make libs:
    ```
    cd ${POSE_ROOT}/lib
@@ -109,7 +109,7 @@ For SyRIP data, please download from [SyRIP dataset](https://coe.northeastern.ed
 ```
 ${POSE_ROOT}
 |-- data
-`-- |-- coco
+`-- |-- syrip
     `-- |-- annotations
         |   |-- person_keypoints_train_pre_infant.json
         |   |-- person_keypoints_train_infant.json   
@@ -136,7 +136,6 @@ ${POSE_ROOT}
                 |-- ... 
 ```
 Note: our train_pre_infant dataset with only real/synthetic labels consists of 1904 samples from COCO Val2017 dataset and 2000 synthetic adult images from SURREAL dataset. If you need it to train model, please contact us. Or you can create your own train_pre_infant dataset.
-
 ### Test on SyRIP validate dataset using FiDIP pretrained models
 
 ```

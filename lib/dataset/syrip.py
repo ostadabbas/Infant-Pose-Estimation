@@ -191,8 +191,8 @@ class SYRIPDataset(JointsDataset):
             if max(obj['keypoints']) == 0:
                 continue
 
-            joints_3d = np.zeros((self.num_joints, 3), dtype=np.float)
-            joints_3d_vis = np.zeros((self.num_joints, 3), dtype=np.float)
+            joints_3d = np.zeros((self.num_joints, 3), dtype=np.float32)
+            joints_3d_vis = np.zeros((self.num_joints, 3), dtype=np.float32)
             for ipt in range(self.num_joints):
                 joints_3d[ipt, 0] = obj['keypoints'][ipt * 3 + 0]
                 joints_3d[ipt, 1] = obj['keypoints'][ipt * 3 + 1]
@@ -284,9 +284,9 @@ class SYRIPDataset(JointsDataset):
             num_boxes = num_boxes + 1
 
             center, scale = self._box2cs(box)
-            joints_3d = np.zeros((self.num_joints, 3), dtype=np.float)
+            joints_3d = np.zeros((self.num_joints, 3), dtype=np.float32)
             joints_3d_vis = np.ones(
-                (self.num_joints, 3), dtype=np.float)
+                (self.num_joints, 3), dtype=np.float32)
             kpt_db.append({
                 'image': img_name,
                 'center': center,
@@ -325,7 +325,7 @@ class SYRIPDataset(JointsDataset):
                 _img = int(img_path[idx].split('/')[-1][5:-4])
             else:
                 _img = int(img_path[idx][-16:-4])
-            print(_img)
+            #print(_img)
             _kpts.append({
                 'keypoints': kpt,
                 'center': all_boxes[idx][0:2],
@@ -426,7 +426,7 @@ class SYRIPDataset(JointsDataset):
             _key_points = np.array([img_kpts[k]['keypoints']
                                     for k in range(len(img_kpts))])
             key_points = np.zeros(
-                (_key_points.shape[0], self.num_joints * 3), dtype=np.float
+                (_key_points.shape[0], self.num_joints * 3), dtype=np.float32
             )
 
             for ipt in range(self.num_joints):

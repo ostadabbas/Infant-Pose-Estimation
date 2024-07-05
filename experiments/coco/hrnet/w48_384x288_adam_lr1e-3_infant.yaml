@@ -27,7 +27,7 @@ MODEL:
   INIT_WEIGHTS: true
   NAME: adaptive_pose_hrnet
   NUM_JOINTS: 17
-  PRETRAINED: 'models/pytorch/imagenet/hrnet_w48-8ef0771d.pth'
+  PRETRAINED: ''#models/pytorch/imagenet/hrnet_w48-8ef0771d.pth'
   TARGET_TYPE: gaussian
   IMAGE_SIZE:
   - 288
