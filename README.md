@@ -59,15 +59,12 @@ This is an official pytorch implementation of [*Invariant Representation Learnin
 | Pose-MobileNet + Finetune | MobileNetV2 | 224x224 | 3.91M | 0.46 | 78.9 | 97.2 | 90.6 | 84.2 | 98.0 | 94.0 |
 | Pose-MobileNet + FiDIP | MobileNetV2 | 224x224 | 3.91M | 0.46 | **79.2** | 99.0 | 89.4 | 84.1 | 99.0 | 92.0 |
 
- 
 ## Environment
-The code is developed using python 3.6 on Ubuntu 18.04. NVIDIA GPUs are needed. The code is developed and tested using one NVIDIA TITAN Xp GPU card. Other platforms or GPU cards are not fully tested.
-
+The code is developed using python 3.12 with CUDA 12.1 on Ubuntu 18.04. NVIDIA GPUs are needed. The code is developed and tested using one NVIDIA TITAN Xp GPU card. Other platforms or GPU cards are not fully tested.
+ 
 ## Quick Start
 ### Installation
-1. Install pytorch = v1.7.0 with cuda 10.1 following [official instruction](https://pytorch.org/).
-
-2. Clone this repo, and we'll call the directory that you cloned as ${POSE_ROOT} and get the following directory.
+1. Clone this repo, and we'll call the directory that you cloned as ${POSE_ROOT} and get the following directory.
    ```
    ${POSE_ROOT}
    ├── data
@@ -76,44 +73,43 @@ The code is developed using python 3.6 on Ubuntu 18.04. NVIDIA GPUs are needed. 
    ├── log
    ├── models
    ├── output
-   ├── tools
+   ├── pose_estimation
    ├── README.md
-   ├── requirements.txt
+   ├── fidip_env.yml
    └── syn_generation
 
    ```
 
-3. Install dependencies:
+2. Create environment:
    ```
-   pip install -r requirements.txt
+   conda env create -f fidip_env.yml
    ```
-4. Make libs:
+3. Make libs:
    ```
    cd ${POSE_ROOT}/lib
    make
    ```
-5. Install [COCOAPI](https://github.com/cocodataset/cocoapi)
 
 ### Download pretrained models
  (1) download DarkPose pretrained models from [TGA_models](https://drive.google.com/drive/folders/14kAA1zXuKODYgrRiQmKnVcipbY7RedVV). 
  (2) download our FiDIP pretrained model from [FiDIP_models](https://drive.google.com/drive/folders/108P-1SnTqaj3xNtjYZ1o7T8z6UvUYuiC?usp=sharing). 
-   Please download them under ${POSE_ROOT}/models/pytorch, and make them look like this:
+ Please download them under ${POSE_ROOT}/models, and make them look like this:
 
    ```
    ${POSE_ROOT}
     `-- models
         |-- hrnet_fidip.pth
         |-- mobile_fidip.pth
-        |-- coco
-           `-- posemobile.pth
+        `-- coco
+            `-- w48_384x288.pth
    ```
    
 ### Data preparation
-For SyRIP data, please download from [SyRIP dataset](https://coe.northeastern.edu/Research/AClab/SyRIP/). Download and extract them under {POSE_ROOT}/data, and make them look like this:
+For SyRIP data, please download from [SyRIP dataset](https://coe.northeastern.edu/Research/AClab/SyRIP/). The original SyRIP data can be download from **`SyRIP.zip'**, and the data for FiDIP model training can be download from **'syrip_for_train'**. Download and extract them under {POSE_ROOT}/data, and make them look like this:
 ```
 ${POSE_ROOT}
 |-- data
-`-- |-- syrip
+`-- |-- coco
     `-- |-- annotations
         |   |-- person_keypoints_train_pre_infant.json
         |   |-- person_keypoints_train_infant.json   
@@ -140,6 +136,7 @@ ${POSE_ROOT}
                 |-- ... 
 ```
 Note: our train_pre_infant dataset with only real/synthetic labels consists of 1904 samples from COCO Val2017 dataset and 2000 synthetic adult images from SURREAL dataset. If you need it to train model, please contact us. Or you can create your own train_pre_infant dataset.
+
 ### Test on SyRIP validate dataset using FiDIP pretrained models
 
 ```
